@@ -1,62 +1,33 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
+// Functionality to toggle burger images
+const burgerImages = document.querySelectorAll('.burger img');
+const toggleImages = document.querySelectorAll('.burger-toggle img');
+let currentIndex = 0;
 
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
+toggleImages[currentIndex].classList.add('active');
 
-/**
- * Define Global Variables
- * 
-*/
+burgerImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        toggleImages.forEach(toggleImg => toggleImg.classList.remove('active'));
+        toggleImages[currentIndex].classList.add('active');
+        toggleImages[currentIndex].src = burgerImages[index].src;
+        currentIndex = (currentIndex + 1) % toggleImages.length;
+    });
+});
 
+// Functionality to create twinkling stars
+function createStars() {
+    const starsContainer = document.getElementById('stars');
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = `${Math.random() * windowWidth}px`;
+        star.style.top = `${Math.random() * windowHeight}px`;
+        starsContainer.appendChild(star);
+    }
+}
 
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
+// Call the createStars function when the page loads
+window.addEventListener('load', createStars);

@@ -1,0 +1,11 @@
+/* Reset Styles */
+* {
+  text-decoration: none;
+}
+
+body {
+  color: white;
+  animation: fadeIn 1s ease-in-out;
+  background-color: black;
+  background-attachment: fixed;
+}
