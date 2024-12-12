@@ -7,26 +7,31 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'about', text: 'About' }
     ];
 
-    // Create and append navigation items dynamically
+    // Create and append navigation items dynamically as an unordered list
     const navContainer = document.querySelector('.center-nav');
+    const ul = document.createElement('ul'); // Create an unordered list
+
     navItems.forEach(item => {
-        const a = document.createElement('a');
+        const li = document.createElement('li'); // Create a list item
+        const a = document.createElement('a'); // Create a link
         a.href = `#${item.id}`;
         a.textContent = item.text;
         a.className = 'nav-link';
         a.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent the default anchor click behavior
+            e.preventDefault(); // Prevent default anchor click behavior
             const targetSection = document.querySelector(this.getAttribute('href'));
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
             }
         });
-        navContainer.appendChild(a);
-
+        li.appendChild(a); // Append link to list item
+        ul.appendChild(li); // Append list item to the unordered list
     });
 
+    navContainer.appendChild(ul); // Append the unordered list to the navigation container
+
     // Retrieve all nav links after they have been dynamically added
-    const navLinks = document.querySelectorAll('.navbar a');
+    const navLinks = document.querySelectorAll('.navbar .nav-link');
 
     // Functionality to toggle burger images
     const burgerImages = document.querySelectorAll('.burger img');
@@ -61,27 +66,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('load', createStars);
 
-    // Function to activate section based on viewport
-    function activateSection() {
-        let found = false; // This flag will prevent multiple sections from being marked active
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom >= 150 && !found) {
-                const activeId = '#' + section.id;
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === activeId) {
-                        link.classList.add('active');
-                    }
-                });
-                found = true; // Mark as found to prevent activating multiple sections
+    // Function to activate section based on viewport using IntersectionObserver
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.7 // Adjust threshold to activate section when 70% of it is visible
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            const navLink = document.querySelector(`.navbar a[href="#${entry.target.id}"]`);
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                if (navLink) navLink.classList.add('active');
             }
         });
-        if (!found) navLinks.forEach(link => link.classList.remove('active')); // If no section is active, remove all
-    }
+    };
 
-    // Manage active state on scroll
-    window.addEventListener('scroll', activateSection);
-    activateSection(); // Initialize on page load
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => observer.observe(section));
+
+    // Initialize the active state on page load
+    const firstSection = document.querySelector('section');
+    if (firstSection) {
+        const firstNavLink = document.querySelector(`.navbar a[href="#${firstSection.id}"]`);
+        if (firstNavLink) firstNavLink.classList.add('active');
+    }
 });
