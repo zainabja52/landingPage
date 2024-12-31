@@ -507,12 +507,14 @@ footer {
 
 
 /* CSS for Active Navigation Link */
-.navbar .nav-link.active {
-  color: rgb(255, 140, 0); /* Example: Orange text for active state */
-  background-color: rgba(0, 0, 0, 0.1); /* Slight background to enhance visibility */
+.navbar .center-nav .nav-link.active {
+  color: rgb(255, 140, 0);
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
   padding: 10px 15px;
   border-radius: 5px;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+  transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 1024px) {
