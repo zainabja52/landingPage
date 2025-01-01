@@ -1,111 +1,116 @@
 header {
-    width: 100%;
-    height: 100vh;
-    background-color: transparent;
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
-    animation: twinkle 2s infinite;
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
-  }
-  
-  @keyframes twinkle {
-    0%, 100% {
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  animation: twinkle 2s infinite;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes twinkle {
+  0%, 100% {
       opacity: 0.5;
-    }
-    50% {
+  }
+  50% {
       opacity: 1;
-    }
   }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    animation: slideInFromTop 1s ease-in-out;
-  }
-  
-  .navbar img {
-    width: 50px;
-    animation: rotateIn 1s ease-in-out;
-  }
-  
-  .navbar .center-nav a,
-  .social a {
-    color: white;
-    margin-left: 15px;
-    font-size: 1.3rem;
-    transition: all 0.5s ease;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .navbar .center-nav a:first-child {
-    color: rgb(255, 140, 0);
-  }
-  
-  .navbar .center-nav a:hover,
-  .social a:hover {
-    color: rgb(255, 140, 0);
-    text-shadow: 0px 0px 30px rgb(255, 140, 0);
-  }
-  
-  /* New styles for underline effect */
-  .navbar .center-nav a {
-    position: relative;
-    text-decoration: none;
-  }
-  
-  .navbar .center-nav a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(255, 140, 0);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .navbar .center-nav a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
-  }
-  
-  /* Text Section */
-  .text {
-    position: relative;
-    top: 10rem;
-    left: 11rem;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .text h1 {
-    font-weight: bold;
-    font-size: 4rem;
-    font-family: sans-serif;
-    margin-bottom: 10px;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .text p {
-    width: 46%;
-    animation: fadeInUp 1s ease-in-out 1s backwards;
-  }
+}
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Sticky Navbar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-  /* Menu Section */
+.navbar img {
+  width: 50px;
+  animation: rotateIn 1s ease-in-out;
+}
+
+.navbar .center-nav a,
+.social a {
+  color: white;
+  margin-left: 15px;
+  font-size: 1.3rem;
+  transition: all 0.5s ease;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.navbar .center-nav a:first-child {
+  color: rgb(255, 140, 0);
+}
+
+.navbar .center-nav a:hover,
+.social a:hover {
+  color: rgb(255, 140, 0);
+  text-shadow: 0px 0px 30px rgb(255, 140, 0);
+}
+
+.navbar .center-nav a {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar .center-nav a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(255, 140, 0);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .center-nav a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.text {
+  position: relative;
+  top: 10rem;
+  left: 11rem;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.text h1 {
+  font-weight: bold;
+  font-size: 4rem;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.text p {
+  width: 46%;
+  animation: fadeInUp 1s ease-in-out 1s backwards;
+}
+
 .menu-section {
-    max-width: var(--max-width);
-    margin: auto;
-    padding: 5rem 1rem;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
 }
 
 .menu-title {

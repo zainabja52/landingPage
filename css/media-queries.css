@@ -1,7 +1,14 @@
 @media (max-width: 1024px) {
   .navbar {
-    justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar img {
+    width: 40px; /* Reduce logo size */
+  }
+  .center-nav ul {
+    flex-direction: column; /* Stack navigation links */
+    gap: 10px; /* Add spacing between links */
   }
   .menu-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -10,6 +17,7 @@
 
 @media (max-width: 768px) {
   .navbar {
+    justify-content: center; /* Center content */
     flex-direction: column;
     align-items: center;
     gap: 15px;
@@ -23,11 +31,11 @@
     margin: 0;
   }
   .navbar img {
-    width: 40px;
+    width: 35px; /* Updated size for better responsiveness */
   }
   .text {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Adjusted font size */
   }
   .burger-toggle img {
     visibility: hidden;
@@ -57,18 +65,18 @@
     gap: 8px;
   }
   .navbar img {
-    width: 40px;
+    width: 30px; /* Adjusted for smaller screens */
   }
   .burger img {
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Adjusted size */
+    height: 50px;
   }
   .text {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reduced font size for compact view */
     padding: 1rem;
   }
   .text h1 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Reduced header size */
   }
   .menu-card {
     padding: 0.5rem;
@@ -81,6 +89,6 @@
   .order-form input,
   .order-form textarea,
   .order-btn {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reduced form font size */
   }
 }
