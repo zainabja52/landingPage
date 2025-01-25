@@ -58,7 +58,7 @@ The website is fully responsive and interactive, with smooth scrolling and intui
 
 ## **Screenshots**
 ### Home Page
-![image](https://github.com/user-attachments/assets/24ff2e70-c8b8-45b6-997b-6501f1765b32)
+![image](https://github.com/user-attachments/assets/a5971b55-812a-431f-ab7d-b75697bb9870)
 
 ### Menu Section
 ![image](https://github.com/user-attachments/assets/9d8bec41-6530-4186-9414-dfae85c4a913)
