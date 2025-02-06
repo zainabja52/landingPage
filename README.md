@@ -2,6 +2,9 @@
 
 Welcome to **Burger Haven**, the ultimate destination for delicious, juicy burgers. This repository contains the source code for a responsive and visually appealing website showcasing our menu, about us section, and shop.
 
+## Live Demo
+🚀 Check out the live version here: [Burger Haven Website](https://zainabja52.github.io/landingPage/)
+
 ---
 
 ## **Table of Contents**
